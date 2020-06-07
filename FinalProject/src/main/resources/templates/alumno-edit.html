@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/update/{id}(id=${alumno.id})}" th:object="${alumno}" method="post">
+    <label for="id">Id</label>
+    <input type="number" th:field="*{id}" id="id" readonly>
+    <label for="nombre">Nombre</label>
+    <input type="text" th:field="*{nombre}" id="nombre">
+    <label for="apellido">Apellido</label>
+    <input type="text" th:field="*{apellido}" id="apellido">
+    <label for="edad">Edad</label>
+    <input type="number" th:field="*{edad}" id="edad">
+    <label for="email">Email</label>
+    <input type="email" th:field="*{email}" id="email">
+    <label for="semestre">Semestre</label>
+    <input type="number" th:field="*{semestre}" id="semestre">
+    <label for="materias">Materias</label>
+    <select id="materias" th:field="*{materias}">
+        <option value="">Seleccionar Materia</option>
+        <option th:each="materiasItem : ${materias}"
+                th:text="${materiasItem.getName()}"
+                th:value="${materiasItem.getId()}">
+        </option>
+    </select>
+    <button type="submit">Edit Alumno</button>
+</form>
+</body>
+</html>

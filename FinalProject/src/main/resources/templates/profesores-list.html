@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="get" th:action="@{/}">
+    <input type="text" name="email">
+    <input type="number" name="age">
+    <button type="submit">Search</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Edad</th>
+        <th>Materia</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="profesor: ${profesores}">
+        <td th:text="${profesor.getId()}"></td>
+        <td th:text="${profesor.getNombre()}"></td>
+        <td th:text="${profesor.getApellido()}"></td>
+        <td th:text="${profesor.getEmail()}"></td>
+        <td th:text="${profesor.getEdad()}"></td>
+        <td th:text="${profesor.getSemestre()}"></td>
+        <td th:text="${profesor.getMateria().getName()}"></td>
+
+        <td><a th:href="@{/edit/{id}(id=${profesor.getId()})}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${profesor.getId()})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/register}">New Profesor</a>
+</body>
+</html>

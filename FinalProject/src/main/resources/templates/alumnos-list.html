@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="get" th:action="@{/}">
+    <input type="text" name="email">
+    <input type="number" name="age">
+    <button type="submit">Search</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Edad</th>
+        <th>Semestre</th>
+        <th>Materias</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="alumno: ${alumnos}">
+        <td th:text="${alumno.getId()}"></td>
+        <td th:text="${alumno.getNombre()}"></td>
+        <td th:text="${alumno.getApellido()}"></td>
+        <td th:text="${alumno.getEmail()}"></td>
+        <td th:text="${alumno.getEdad()}"></td>
+        <td th:text="${alumno.getSemestre()}"></td>
+        <td th:each="materia: ${alumno.getMaterias()}">
+            <dd th:text="${materia.getName()}"></dd>
+        </td>
+
+        <td><a th:href="@{/edit/{id}(id=${alumno.getId()})}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${alumno.getId()})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/register}">New Alumno</a>
+</body>
+</html>
