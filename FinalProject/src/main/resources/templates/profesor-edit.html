@@ -5,13 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/update/{id}(id=${profesor.id})}" th:object="${profesor}" method="post">
+<form th:action="@{/profesores/update/{id}(id=${profesor.id})}" th:object="${profesor}" method="post">
     <label for="id">Id</label>
     <input type="number" th:field="*{id}" id="id" readonly>
     <label for="nombre">Nombre</label>
-    <input type="text" th:field="*{nombre}" id="nombre">
+    <input type="text" th:field="*{name}" id="nombre">
     <label for="apellido">Apellido</label>
-    <input type="text" th:field="*{apellido}" id="apellido">
+    <input type="text" th:field="*{lastname}" id="apellido">
     <label for="edad">Edad</label>
     <input type="number" th:field="*{edad}" id="edad">
     <label for="email">Email</label>

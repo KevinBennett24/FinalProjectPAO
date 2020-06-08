@@ -9,7 +9,7 @@ public class Alumno {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
-    String nombre, apellido, email;
+    String name, lastname, email;
     Integer edad, semestre;
 
     @ManyToMany
@@ -24,9 +24,29 @@ public class Alumno {
 
     public Alumno(){}
 
-    public Alumno(String nombre, String apellido, String email, Integer edad){
-        this.nombre = nombre;
-        this.apellido = apellido;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setMaterias(List<Materia> materias) {
+        this.materias = materias;
+    }
+
+    public Alumno(String name, String lastname, String email, Integer edad){
+        this.name = name;
+        this.lastname = lastname;
         this.email = email;
         this.edad = edad;
         this.semestre = 0;
@@ -40,21 +60,6 @@ public class Alumno {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
 
     public String getEmail() {
         return email;

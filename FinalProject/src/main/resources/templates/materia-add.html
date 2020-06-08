@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/add}" th:object="${materia}" method="post">
+<form th:action="@{/materias/add}" th:object="${materia}" method="post">
     <label for="id">Id</label>
     <input type="number" th:field="*{id}" id="id" readonly>
     <label for="nombre">Nombre</label>

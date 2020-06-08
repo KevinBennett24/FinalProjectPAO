@@ -10,20 +10,18 @@ public class Materia {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
     String name;
-    @OneToOne
+    @OneToOne(mappedBy = "materia")
     Profesor profesor;
-    @OneToMany(mappedBy = "materia")
+    @ManyToMany
     List<Alumno> alumnos;
 
     public Materia(){
         alumnos = new ArrayList<>();
-        profesor = new Profesor();
     }
 
     public Materia(String name){
         this.name = name;
         alumnos = new ArrayList<>();
-        profesor = new Profesor();
     }
 
     public Integer getId() {

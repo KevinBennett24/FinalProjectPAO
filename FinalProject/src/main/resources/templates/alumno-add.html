@@ -5,13 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/add}" th:object="${alumno}" method="post">
+<form th:action="@{/alumnos/add}" th:object="${alumno}" method="post">
     <label for="id">Id</label>
     <input type="number" name="id" id="id" th:value="${id}" readonly>
-    <label for="nombre">Nombre</label>
-    <input type="text" th:field="*{nombre}" id="nombre">
-    <label for="apellido">Apellido</label>
-    <input type="text" th:field="*{apellido}" id="apellido">
+    <label for="name">Nombre</label>
+    <input type="text" th:field="*{name}" id="name">
+    <label for="lastname">Apellido</label>
+    <input type="text" th:field="*{lastname}" id="lastname">
     <label for="edad">Edad</label>
     <input type="number" th:field="*{edad}" id="edad">
     <label for="email">Email</label>

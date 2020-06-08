@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form method="get" th:action="@{/}">
+<form method="get" th:action="@{/alumnos/}">
     <input type="text" name="email">
     <input type="number" name="age">
     <button type="submit">Search</button>
@@ -25,8 +25,8 @@
     <tbody>
     <tr th:each="alumno: ${alumnos}">
         <td th:text="${alumno.getId()}"></td>
-        <td th:text="${alumno.getNombre()}"></td>
-        <td th:text="${alumno.getApellido()}"></td>
+        <td th:text="${alumno.getName()}"></td>
+        <td th:text="${alumno.getLastname()}"></td>
         <td th:text="${alumno.getEmail()}"></td>
         <td th:text="${alumno.getEdad()}"></td>
         <td th:text="${alumno.getSemestre()}"></td>
@@ -34,11 +34,11 @@
             <dd th:text="${materia.getName()}"></dd>
         </td>
 
-        <td><a th:href="@{/edit/{id}(id=${alumno.getId()})}">Edit</a></td>
-        <td><a th:href="@{/delete/{id}(id=${alumno.getId()})}">Delete</a></td>
+        <td><a th:href="@{/alumnos/edit/{id}(id=${alumno.getId()})}">Edit</a></td>
+        <td><a th:href="@{/alumnos/delete/{id}(id=${alumno.getId()})}">Delete</a></td>
     </tr>
     </tbody>
 </table>
-<a th:href="@{/register}">New Alumno</a>
+<a th:href="@{/alumnos/register}">New Alumno</a>
 </body>
 </html>

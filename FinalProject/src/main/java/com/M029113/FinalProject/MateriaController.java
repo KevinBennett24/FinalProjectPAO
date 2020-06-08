@@ -25,7 +25,7 @@ public class MateriaController {
         } else {
             model.addAttribute("materias", materiaRepository.findAll());
         }
-        return "materia-list";
+        return "materias-list";
     }
     @GetMapping("/register")
     String registration(Materia materia, Model model){
@@ -38,28 +38,28 @@ public class MateriaController {
     ModelAndView addMateria(Materia materia, ModelMap model){
         materiaRepository.save(materia);
         model.addAttribute("materias", materiaRepository.findAll());
-        return new ModelAndView("redirect:/"); //revisar si se va a la pgina correcta
+        return new ModelAndView("redirect:/materias/"); //revisar si se va a la pgina correcta
     }
 
     @GetMapping("/edit/{id}")
     String editMateria(@PathVariable("id") int id, Model model){
         var materia = materiaRepository.findById(id).get();
-        model.addAttribute("alumno",materia);
+        model.addAttribute("materia",materia);
         return "materia-edit";
     }
 
     @PostMapping("/update/{id}")
-    ModelAndView updateMateria(@PathVariable("id") int id,Materia editedMateria, Model model){
-        materiaRepository.save(editedMateria);
+    ModelAndView updateMateria(@PathVariable("id") int id,Materia editedmateria, Model model){
+        materiaRepository.save(editedmateria);
         model.addAttribute("materias",materiaRepository.findAll());
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/materias/");
     }
 
     @GetMapping("/delete/{id}")
     ModelAndView deleteMateria (@PathVariable("id") int id, Model model){
         materiaRepository.deleteById(id);
         model.addAttribute("materias",materiaRepository.findAll());
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/materias/");
     }
 
 

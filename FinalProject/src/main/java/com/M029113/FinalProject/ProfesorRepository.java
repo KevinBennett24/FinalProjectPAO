@@ -9,8 +9,8 @@ public interface ProfesorRepository extends CrudRepository<Profesor,Integer> {
 
     List<Profesor> findByEmailContainingOrderByNameDesc(String s);
 
-    List<Profesor> findByAgeGreaterThanEqual(int i);
+    List<Profesor> findByEdadGreaterThanEqual(int i);
 
-    List<Profesor> findByEmailContainingAndAgeGreaterThanEqual(String s, int i);
+    List<Profesor> findByEmailContainingAndEdadGreaterThanEqual(String s, int i);
 
 }

@@ -23,9 +23,9 @@ public class ProfesorController {
     @GetMapping("/")
     String listProfesores(@RequestParam(name = "email", defaultValue = "") String email, @RequestParam(name = "age", defaultValue = "0") int age, Model model) {
         if (!email.isEmpty() && age > 0) {
-            model.addAttribute("profesores", profesorRepository.findByEmailContainingAndAgeGreaterThanEqual(email, age));
+            model.addAttribute("profesores", profesorRepository.findByEmailContainingAndEdadGreaterThanEqual(email, age));
         } else if (age > 0) {
-            model.addAttribute("profesores", profesorRepository.findByAgeGreaterThanEqual(age));
+            model.addAttribute("profesores", profesorRepository.findByEdadGreaterThanEqual(age));
         } else if (!email.isEmpty()) {
             model.addAttribute("profesores", profesorRepository.findByEmailContainingOrderByNameDesc(email));
         } else {
@@ -44,7 +44,7 @@ public class ProfesorController {
     ModelAndView addProfesor(Profesor profesor, ModelMap model){
         profesorRepository.save(profesor);
         model.addAttribute("profesores", profesorRepository.findAll());
-        return new ModelAndView("redirect:/"); //revisar si se va a la pgina correcta
+        return new ModelAndView("redirect:/profesores/"); //revisar si se va a la pgina correcta
     }
 
     @GetMapping("/edit/{id}")
@@ -61,7 +61,7 @@ public class ProfesorController {
 
         profesorRepository.save(editedProfesor);
         model.addAttribute("profesores",profesorRepository.findAll());
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/profesores/");
     }
 
     @GetMapping("/delete/{id}")
@@ -69,7 +69,7 @@ public class ProfesorController {
 
         profesorRepository.deleteById(id);
         model.addAttribute("profesores",profesorRepository.findAll());
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/profesores/");
     }
 
 

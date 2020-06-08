@@ -9,8 +9,8 @@ public interface AlumnoRepository extends CrudRepository<Alumno,Integer> {
 
     List<Alumno> findByEmailContainingOrderByNameDesc(String s);
 
-    List<Alumno> findByAgeGreaterThanEqual(int i);
+    List<Alumno> findByEdadGreaterThanEqual(int i);
 
-    List<Alumno> findByEmailContainingAndAgeGreaterThanEqual(String s, int i);
+    List<Alumno> findByEmailContainingAndEdadGreaterThanEqual(String s, int i);
 
 }
