@@ -20,13 +20,13 @@ public class AlumnoController {
     }
 
     @GetMapping("/")
-    String listAlumnos(@RequestParam(name = "email", defaultValue = "") String email, @RequestParam(name = "age", defaultValue = "0") int age, Model model) {
-        if (!email.isEmpty() && age > 0) {
-            model.addAttribute("alumnos", alumnoRepository.findByEmailContainingAndEdadGreaterThanEqual(email, age));
-        } else if (age > 0) {
-            model.addAttribute("alumnos", alumnoRepository.findByEdadGreaterThanEqual(age));
-        } else if (!email.isEmpty()) {
-            model.addAttribute("alumnos", alumnoRepository.findByEmailContainingOrderByNameDesc(email));
+    String listAlumnos(@RequestParam(name = "name", defaultValue = "") String name, @RequestParam(name = "edad", defaultValue = "0") int edad, Model model) {
+        if (!name.isEmpty() && edad > 0) {
+            model.addAttribute("alumnos", alumnoRepository.findByNameContainingAndEdadGreaterThanEqual(name, edad));
+        } else if (edad > 0) {
+            model.addAttribute("alumnos", alumnoRepository.findByEdadGreaterThanEqual(edad));
+        } else if (!name.isEmpty()) {
+            model.addAttribute("alumnos", alumnoRepository.findByNameOrderByNameDesc(name));
         } else {
             model.addAttribute("alumnos", alumnoRepository.findAll());
         }

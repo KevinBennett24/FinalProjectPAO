@@ -12,7 +12,7 @@ public class Materia {
     String name;
     @OneToOne(mappedBy = "materia")
     Profesor profesor;
-    @ManyToMany
+    @ManyToMany(mappedBy = "materias")
     List<Alumno> alumnos;
 
     public Materia(){

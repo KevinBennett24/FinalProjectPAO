@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface MateriaRepository extends CrudRepository<Materia,Integer> {
-    List<Materia> findByNameOrderByName(String s);
+    List<Materia> findByNameOrderByNameDesc(String s);
 
 }

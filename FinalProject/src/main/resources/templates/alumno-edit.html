@@ -19,13 +19,14 @@
     <label for="semestre">Semestre</label>
     <input type="number" th:field="*{semestre}" id="semestre">
     <label for="materias">Materias</label>
-    <select id="materias" th:field="*{materias}">
+    <select id="materias" th:field="*{materias}" multiple="multiple">
         <option value="">Seleccionar Materia</option>
         <option th:each="materiasItem : ${materias}"
                 th:text="${materiasItem.getName()}"
                 th:value="${materiasItem.getId()}">
         </option>
     </select>
+
     <button type="submit">Edit Alumno</button>
 </form>
 </body>

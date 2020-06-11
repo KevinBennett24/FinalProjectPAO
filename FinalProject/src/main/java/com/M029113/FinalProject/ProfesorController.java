@@ -21,11 +21,11 @@ public class ProfesorController {
     }
 
     @GetMapping("/")
-    String listProfesores(@RequestParam(name = "email", defaultValue = "") String email, @RequestParam(name = "age", defaultValue = "0") int age, Model model) {
-        if (!email.isEmpty() && age > 0) {
-            model.addAttribute("profesores", profesorRepository.findByEmailContainingAndEdadGreaterThanEqual(email, age));
-        } else if (age > 0) {
-            model.addAttribute("profesores", profesorRepository.findByEdadGreaterThanEqual(age));
+    String listProfesores(@RequestParam(name = "email", defaultValue = "") String email, @RequestParam(name = "edad", defaultValue = "0") int edad, Model model) {
+        if (!email.isEmpty() && edad > 0) {
+            model.addAttribute("profesores", profesorRepository.findByEmailContainingAndEdadGreaterThanEqual(email, edad));
+        } else if (edad > 0) {
+            model.addAttribute("profesores", profesorRepository.findByEdadGreaterThanEqual(edad));
         } else if (!email.isEmpty()) {
             model.addAttribute("profesores", profesorRepository.findByEmailContainingOrderByNameDesc(email));
         } else {

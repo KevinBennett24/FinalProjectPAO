@@ -20,6 +20,7 @@
     <select id="materias" th:field="*{materia}">
         <option value="">Seleccionar Materia</option>
         <option th:each="materiasItem : ${materias}"
+                th:if="${materiasItem.getProfesor()==null}"
                 th:text="${materiasItem.getName()}"
                 th:value="${materiasItem.getId()}">
         </option>

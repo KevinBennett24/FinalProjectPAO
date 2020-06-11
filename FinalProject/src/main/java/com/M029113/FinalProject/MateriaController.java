@@ -19,9 +19,9 @@ public class MateriaController {
     }
 
     @GetMapping("/")
-    String listMaterias(@RequestParam(name = "materia", defaultValue = "") String materia, Model model) {
-        if (!materia.isEmpty() ) {
-            model.addAttribute("materias", materiaRepository.findByNameOrderByName(materia));
+    String listMaterias(@RequestParam(name = "name", defaultValue = "") String name, Model model) {
+        if (!name.isEmpty()) {
+            model.addAttribute("materias", materiaRepository.findByNameOrderByNameDesc(name));
         } else {
             model.addAttribute("materias", materiaRepository.findAll());
         }
