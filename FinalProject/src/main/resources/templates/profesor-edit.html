@@ -2,7 +2,7 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>editar profesor</title>
 </head>
 <body>
 <form th:action="@{/profesores/update/{id}(id=${profesor.id})}" th:object="${profesor}" method="post">

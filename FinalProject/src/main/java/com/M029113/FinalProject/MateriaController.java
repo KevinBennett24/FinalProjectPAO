@@ -57,14 +57,13 @@ public class MateriaController {
 
     @GetMapping("/delete/{id}")
     ModelAndView deleteMateria (@PathVariable("id") int id, Model model){
+        var materia = materiaRepository.findById(id).get();
+        if (materia.getProfesor() != null){
+            materia.getProfesor().setMateria(null);
+        }
         materiaRepository.deleteById(id);
         model.addAttribute("materias",materiaRepository.findAll());
         return new ModelAndView("redirect:/materias/");
     }
-
-
-
-
-
 
 }

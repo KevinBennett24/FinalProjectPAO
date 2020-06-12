@@ -2,7 +2,7 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>editar alumno</title>
 </head>
 <body>
 <form th:action="@{/alumnos/update/{id}(id=${alumno.id})}" th:object="${alumno}" method="post">
@@ -26,7 +26,6 @@
                 th:value="${materiasItem.getId()}">
         </option>
     </select>
-
     <button type="submit">Edit Alumno</button>
 </form>
 </body>
